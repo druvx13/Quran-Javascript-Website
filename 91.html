@@ -7,8 +7,14 @@
 <link href="img/favicon.png" rel="icon">
 <link href="css/style.css" rel="stylesheet">
 <script>
-    // Redirect to the new SPA
-    window.location.href = 'index.html#surah/91' + window.location.hash;
+    // Redirect to the new SPA, preserving ayat number if present
+    var hash = window.location.hash;
+    var ayatMatch = hash.match(/#(\d+)/);
+    var newUrl = 'index.html#surah/91';
+    if (ayatMatch) {
+        newUrl += '/' + ayatMatch[1];
+    }
+    window.location.href = newUrl;
 </script>
 </head>
 <body>
